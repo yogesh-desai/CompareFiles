@@ -1,6 +1,10 @@
 #!/bin/bash
-# This code prepares a list of Files to move to Cold directory.
-# Please check src & dest path before you run
+# This code compare file sizes within the given date range. 
+# This code creates 3 output txt files as follows,
+# 1. Matched Files
+# 2. Mismatched Files,
+# 3. MissingFiles.
+# Please check src & dest path before you run the code.
 
 StartDate=`date +"%Y%m%d" -d $1`  #"20160121
 EndDate=`date +"%Y%m%d" -d $2`    #"20160123"
@@ -11,7 +15,7 @@ dest=/home/yogesh/bash-tp/desti
 if [ $# -ne 2 ]
 then
     echo "Usage:`basename $0` Start_Date End_Date"
-    echo "e.g. :bash MoveBatchFilesToCold.bash 20160621 20160625"
+    echo "e.g. :bash CompareFiles.bash 20160621 20160625"
     exit $E_BADARGS
 fi
 
@@ -51,11 +55,14 @@ do
     echo "DestFilesize: "$destfilesize
         if [ "$filesize" == "$destfilesize" ]
         then
+         # File names which matches in size will be written into following file.
             echo $destfile >>OutMatchFiles.txt
         else
+        # File names which do not matches in size will be written into following file.
             echo $destfile >>OutMismatchFiles.txt
         fi
      else
+     # File names which do not exists in destination path will be written into following file.
         echo $destfile >>OutMissingFiles.txt
      fi
 done #For Complete                                                                                                                                                                                                                      

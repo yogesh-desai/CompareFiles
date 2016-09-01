@@ -9,6 +9,7 @@
 StartDate=`date +"%Y%m%d" -d $1`  #"20160121
 EndDate=`date +"%Y%m%d" -d $2`    #"20160123"
 
+# Please change src and dest location as per your need.
 src=/home/yogesh/bash-tp
 dest=/home/yogesh/bash-tp/desti
 

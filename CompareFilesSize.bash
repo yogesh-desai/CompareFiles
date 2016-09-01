@@ -55,7 +55,7 @@ do
     echo "DestFilesize: "$destfilesize
         if [ "$filesize" == "$destfilesize" ]
         then
-         # File names which matches in size will be written into following file.
+        # File names which matches in size will be written into following file.
             echo $destfile >>OutMatchFiles.txt
         else
         # File names which do not matches in size will be written into following file.

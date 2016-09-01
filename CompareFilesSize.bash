@@ -50,7 +50,7 @@ do
      then
 
     filesize=`ls -l  $srcfile | awk '{print $5}'`
-    destfilesize=`ls -l  $destfile | awk '{print $2}'`
+    destfilesize=`ls -l  $destfile | awk '{print $5}'`
 
     echo "SrcFilesize: "$filesize
     echo "DestFilesize: "$destfilesize
